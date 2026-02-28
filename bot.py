@@ -15,7 +15,6 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 API_TOKEN = os.getenv("API_TOKEN")
 
-# 1. Настройка клиента
 client = genai.Client(api_key=API_TOKEN)
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -34,9 +33,8 @@ def consultant(text):
     Текст: {text}
     """
 
-    # 2. Новый способ вызова модели
     response = client.models.generate_content(
-        model="gemini-2.5-flash",  # В 2026 используем актуальную версию
+        model="gemini-2.5-flash",
         contents=prompt_one
     )
 
@@ -58,9 +56,8 @@ def analyze_contract(text):
     Текст: {text}
     """
 
-    # 2. Новый способ вызова модели
     response = client.models.generate_content(
-        model="gemini-2.5-flash",  # В 2026 используем актуальную версию
+        model="gemini-2.5-flash",
         contents=prompt_two
     )
 
